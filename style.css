@@ -11,6 +11,13 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+
 .fas {
   font-family: "Font Awesome 5 Free";
 }
@@ -60,45 +67,50 @@ header nav li a {
   padding: 0 2rem;
 }
 
-.search {
+.search h1 {
+  margin-bottom: 0.5em;
+}
+
+.search header p {
+  margin-top: 0;
+}
+
+.search form {
   display: inline-flex;
-  flex-direction: row;
-  margin-top: 15px;
-  margin-bottom: 35px;
+  max-width: 100%;
+  overflow: auto;
 }
 
-.icon-location {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 55px;
-  height: auto;
-  background-color: #f2f2f2;
-  border-radius: 14px 0 0 14px;
+.searchFormWrapIcon {
+  background-color: #F2F2F2;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem 0 0 1rem;
+  text-align: center;
 }
 
-.fa-map-marker-alt {
-  font-size: 17px;
+.search form input {
+  border-right: none;
+  border-left: none;
+  border-top: #F2F2F2 1px solid;
+  border-bottom: #F2F2F2 1px solid;
+  padding: 0 1.5rem;
+  width: 14rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Raleway","Sans serif";
 }
 
-.searchbar {
-  padding: 0 0 0 20px;
-  height: 50px;
-  width: 220px;
+.search form button {
+  background-color: #0065FC;
+  color: white;
+  font-weight: bold;
   border: none;
-  border-top: solid 1px #f2f2f2;
-  border-bottom: solid 1px #f2f2f2;
-}
-
-#searchButton {
-  border: none;
-  border-radius: 0 14px 14px 0;
-  background-color: #0065fc;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 17px;
+  border-radius: 0 1rem 1rem 0;
+  font-family: "Raleway", "Sans serif";
+  font-size: 1rem;
   cursor: pointer;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /*------------------------------------------------------------------ #Filters ------------------------------------------------------------------*/
@@ -130,6 +142,9 @@ header nav li a {
 
 .searchFilters div:hover {
   background-color: #f2f7ff;
+}
+.searchFilters div:active {
+  background-color: #929292;
 }
 
 .searchFilters i {
@@ -329,32 +344,32 @@ header nav li a {
   object-fit: cover;
 }
 
-#un {
+#activity1 {
   grid-row: 2/7;
   grid-column: 1/2;
 }
 
-#deux {
+#activity2 {
   grid-column: 2/3;
   grid-row: 2/5;
 }
 
-#trois {
+#activity3 {
   grid-column: 2/3;
   grid-row: 6/7;
 }
 
-#quatre {
+#activity4 {
   grid-column: 4/5;
   grid-row: 2/3;
 }
 
-#cinq {
+#activity5 {
   grid-column: 3/4;
   grid-row: 2/7;
 }
 
-#six {
+#activity6 {
   grid-column: 4/5;
   grid-row: 4/7;
 }
@@ -378,58 +393,220 @@ footer li {
 
 /*------------------------------------------------------------------#MEDIA QUERIES------------------------------------------------------------------*/
 
-@media screen and (max-width: 1024px){
-  .main {
+@media screen and (max-width: 980px) {
+
+
+  .header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logo . button"
+      "navbar navbar navbar";
+    position: relative;
+  }
+
+  #headerSignup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    width: auto;
+    border-bottom: none;
+  }
+
+  #headerSignup a {
+    border-bottom: none;
+  }
+
+  .header li {
+    width: 50%;
     padding: 0;
   }
-  
-  .main h1{
-    font-size: 5rem;
+
+  .header nav a {
+    display: inline-block;
+    border-bottom: 3px #f2f2f2 solid;
+    width: 100%;
   }
+
+  .header nav a[data-active="true"] {
+    border-bottom: 3px #0065fc solid;
+    border-top: none;
+  }
+
+  .header nav a:hover {
+    border-top: none;
+  }
+
+  .searchFormButton {
+    display: none;
+  }
+
+  .hostingMain {
+    grid-template-rows: 1fr;
+  }
+
+  .hostingMain {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+  .activity {
+    grid-template-rows: auto repeat(6, 20rem);
+    row-gap: 2rem;
+  }
+
+  .activity h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+  }
+
+  #activity1 {
+    grid-row: 2;
+    grid-column: 1/-1;
+  }
+
+  #activity2 {
+    grid-row: 3;
+    grid-column: 1/-1;
+  }
+
+  #activity3 {
+    grid-row: 4;
+    grid-column: 1/-1;
+  }
+
+  #activity4 {
+    grid-row: 5;
+    grid-column: 1/-1;
+  }
+
+  #activity5 {
+    grid-row: 6;
+    grid-column: 1/-1;
+  }
+
+  #activity6 {
+    grid-row: 7;
+    grid-column: 1/-1;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+  }
+  .footer li{
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1100px) {
   
-  .hostingMain, .activity {
-    display: grid;
+
+
+  
+  .hostingMain,
+  .activity {
     grid-template-columns: 1fr 1fr;
   }
 
   .activity {
-    grid-template-rows: auto repeat(6, 20rem);
+    grid-template-rows: auto 12rem 12rem 12rem;
     row-gap: 2rem;
-}
-
-
-  #un {
-    grid-row: 2;
-    grid-column: 1/-1;
-}
-
-#deux {
-    grid-row: 3;
-    grid-column: 1/-1;
-}
-
-#trois {
-    grid-row: 4;
-    grid-column: 1/-1;
-}
-
-#quatre {
-    grid-row: 5;
-    grid-column: 1/-1;
-}
-
-#cinq {
-    grid-row: 6;
-    grid-column: 1/-1;
-}
-
-#six {
-    grid-row: 7;
-    grid-column: 1/-1;
-}
-
-  .footer{
-    flex-direction: column;
   }
-  
+
+  .activity h2 {
+    grid-column: 1/-1;
+  }
+
+  #activity1 {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  #activity2 {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  #activity3 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  #activity4 {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  #activity5 {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+  #activity6 {
+    grid-row: 4;
+    grid-column: 2;
+  }
+  .footer {
+    display: grid;
+    grid-template-rows: 1fr;
+    row-gap: 2rem;
+    padding: 10%;
+    
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .main {
+    padding: 5%;
+  }
+
+  .Mainsearch {
+    padding: 0 1rem;
+  }
+
+  .header img {
+    margin-left: 1rem;
+  }
+
+  .hosting {
+    display: grid;
+    row-gap: 2rem;
+    grid-template-rows: auto auto;
+  }
+
+  .hostingMain {
+    background: none;
+    
+  }
+
+  .hostingMain img {
+    height: 14rem;
+
+  }
+
+  .hostingPopular {
+    grid-row: 1/2;
+    border-radius: 0;
+    grid-template-rows: auto repeat(3, 12rem);
+    grid-template-columns: 1fr;
+  }
+
+  .activity {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .fa-search {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1101px) {
+  .hosting {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: 6fr 3fr;
+  }
 }
