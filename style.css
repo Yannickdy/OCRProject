@@ -23,43 +23,55 @@ ul {
 }
 
 .header {
-  margin: 0 auto;
-  max-width: 1340px;
-  display: flex;
-}
-.logo {
-  flex-grow: 1;
-  padding-left: 20px;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: "logo . navbar button";
+  display: grid;
+  max-width: 1440px;
+  margin: auto;
 }
 
-header .logo img {
-  padding: 35px 0 0 0;
-}
+.header nav {
+      grid-area: navbar;
+  }
 
-header nav ul {
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 311px;
-  justify-content: space-around;
-}
+  .header ul {
+      margin: 1.2rem 0;
+      width: 100%;
+      text-align: center;
+  }
 
-header nav li a {
-  padding: 48px 0;
-  display: block;
-  border-top: 2px solid #000000;
-  color: black;
-}
+  .header li {
+      padding: 0 1.2rem;
+  }
+  
 
-.header nav a:hover {
-  border-top: 3px solid #0065fc;
-  color: #0065fc;
-}
+  .header nav a {
+      padding: 1rem 0;
+      font-weight: 500;
+      text-align: center;
+      transition-duration: 0.1s;
+      border-bottom: 3px transparent solid;
+  }
 
-.header nav a[data-active="true"] {
-  border-top: 3px solid #0065fc;
-  color: #0065fc;
-}
+  .header nav a:hover {
+      border-top: 3px solid #0065FC;
+      color: #0065FC;
+  }
+
+  .header nav a[data-active="true"] {
+      border-top: 3px solid #0065FC;
+      color: #0065FC;
+  }
+
+
+  #headerSignup {
+      grid-area: button;
+  }
+
+  #headerSignup a {
+      color: #0065FC;
+      font-weight: 700;
+  }
 
 .main {
   margin: 0 auto;
@@ -393,49 +405,50 @@ footer li {
 
 /*------------------------------------------------------------------#MEDIA QUERIES------------------------------------------------------------------*/
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 650px) {
 
 
   .header {
     grid-template-columns: auto 1fr auto;
-    grid-template-areas:
-      "logo . button"
-      "navbar navbar navbar";
+    grid-template-areas: 
+        "logo . button"
+        "navbar navbar navbar";
     position: relative;
-  }
+}
 
-  #headerSignup {
+#headerSignup
+{
     position: absolute;
     top: 0;
     right: 0;
     padding: 1rem;
     width: auto;
     border-bottom: none;
-  }
+}
 
-  #headerSignup a {
+#headerSignup a {
     border-bottom: none;
-  }
+}
 
-  .header li {
-    width: 50%;
-    padding: 0;
-  }
+    .header li {
+        width: 50%;
+        padding: 0;
+    }
 
-  .header nav a {
-    display: inline-block;
-    border-bottom: 3px #f2f2f2 solid;
-    width: 100%;
-  }
+    .header nav a {
+        display: inline-block;
+        border-bottom: 3px #f2f2f2 solid;
+        width: 100%;
+    }
 
-  .header nav a[data-active="true"] {
-    border-bottom: 3px #0065fc solid;
-    border-top: none;
-  }
+    .header nav a[data-active=true] {
+        border-bottom: 3px #0065FC solid;
+        border-top: none;
+    }
 
-  .header nav a:hover {
-    border-top: none;
-  }
+    .header nav a:hover {
+        border-top: none;
+    }
 
   .searchFormButton {
     display: none;
@@ -499,7 +512,7 @@ footer li {
   }
 }
 
-@media screen and (min-width: 1000px) and (max-width: 1100px) {
+@media screen and (min-width: 650px) and (max-width: 1100px) {
   
 
 
@@ -558,7 +571,7 @@ footer li {
 
 @media screen and (max-width: 1100px) {
   .main {
-    padding: 5%;
+    padding: 0;
   }
 
   .Mainsearch {
@@ -577,6 +590,7 @@ footer li {
 
   .hostingMain {
     background: none;
+    padding: 3rem;
     
   }
 
@@ -593,7 +607,13 @@ footer li {
   }
 
   .activity {
-    padding: 2rem;
+    padding: 3rem;
+  }
+  .hostingPopular {
+    padding: 3rem;
+  }
+  .search {
+    padding: 3rem;
   }
 }
 
