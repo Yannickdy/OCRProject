@@ -510,7 +510,7 @@ footer li {
     padding: 10%;
   }
   .footer li{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -566,7 +566,7 @@ footer li {
     display: grid;
     grid-template-rows: 1fr;
     row-gap: 2rem;
-    padding: 10%;
+    padding: 5%;
     
   }
 }
