@@ -406,7 +406,8 @@ footer li {
 
 /*------------------------------------------------------------------#MEDIA QUERIES------------------------------------------------------------------*/
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 576px) {
+
 
 
   .header {
@@ -513,7 +514,7 @@ footer li {
   }
 }
 
-@media screen and (min-width: 650px) and (max-width: 1100px) {
+@media screen and (min-width: 577px) and (max-width: 1200px) {
   
 
 
